@@ -1,25 +1,19 @@
 cmake_minimum_required( VERSION 2.8 )
 
-set(PROJECT_NAME FT_PRDT)
+set(PROJECT_NAME PRDT)
 project(${PROJECT_NAME})
-
-#find_package(OpenCV REQUIRED)
-
-set(GTEST_ROOT ${CMAKE_SOURCE_DIR}/../thirdparty/gtest)
-set(PRDT_ROOT ${CMAKE_SOURCE_DIR}/../source)
 set(PRDT_PUB_HEADER ${CMAKE_SOURCE_DIR}/../include)
 
 message(STATUS "——————————————————————————————————————")
 message(STATUS "PROJECT_NAME : " ${PROJECT_NAME})
-message(STATUS "DIR : " ${CMAKE_BINARY_DIR})
+message(STATUS "DIR : " ${CMAKE_CURRENT_SOURCE_DIR})
 message(STATUS "——————————————————————————————————————")
 
-add_subdirectory(${PRDT_ROOT} ${CMAKE_BINARY_DIR}/PRDT)
-add_subdirectory(${GTEST_ROOT} ${CMAKE_BINARY_DIR}/gtest)
+find_package(OpenCV REQUIRED)
 
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include/)
 include_directories(${PRDT_PUB_HEADER})
-include_directories(${CMAKE_CURRENT_SOURCE_DIR}/source/include)
-include_directories(${GTEST_ROOT}/include)
+include_directories(${OpenCV_INCLUDE_DIRS})
 
 macro(group_src_by_dir src_files)
     foreach(file_path ${${src_files}})
@@ -65,11 +59,7 @@ if(MSVC)
 elseif (UNIX)
 endif()
 
-add_executable(${PROJECT_NAME} ${HEADER_FILES} ${SRC_FILES})
-
-target_link_libraries(${PROJECT_NAME} PRDT gtest)
-
-enable_testing()
-add_test(NAME ${PROJECT_NAME}
-                CONFIGURATIONS  Release
-                COMMAND ${PROJECT_NAME})
+add_library(${PROJECT_NAME} STATIC
+            ${HEADER_FILES}
+            ${SRC_FILES})
+target_link_libraries(${PROJECT_NAME} ${OpenCV_LIBS})
