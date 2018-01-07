@@ -41,7 +41,8 @@ macro(group_src_by_dir src_files)
     endforeach(file_path)
 endmacro(group_src_by_dir)
 
-file(GLOB_RECURSE HEADER_FILES 
+file(GLOB_RECURSE HEADER_FILES
+    ${PRDT_PUB_HEADER}/*.h
     *.h
     *.hpp
 )

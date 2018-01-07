@@ -32,6 +32,24 @@
 extern "C"
 {
 #endif
+    typedef void(*ResultCallBackFunc)(_IN cv::Mat *palmROI);
+    typedef void(*StateCallBackFunc)(_IN int state);
+
+    PRDT_API int GetPalmROI(_IN const cv::Mat &palmImage,
+                            _IN const cv::Size &roiSize,
+                            _OUT cv::Mat &palmROI);
+    PRDT_API int GetPalmROIAsync(_IN const cv::Mat &palmImage,
+                                 _IN const cv::Size &roiSize,
+                                 _IN ResultCallBackFunc resultCallBack,
+                                 _IN StateCallBackFunc stateCallBack);
+
+    PRDT_API int GetPalmROIByPath(_IN const char *imagePath,
+                                  _IN const cv::Size &roiSize,
+                                  _OUT cv::Mat &palmROI);
+    PRDT_API int GetPalmROIByPathAsync(_IN const char *imageOrVideoPath,
+                                       _IN const cv::Size &roiSize,
+                                       _IN ResultCallBackFunc resultCallBack,
+                                       _IN StateCallBackFunc stateCallBack);
 
 #ifdef __cplusplus
 }
