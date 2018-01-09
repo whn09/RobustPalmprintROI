@@ -24,6 +24,12 @@
 
 #endif
 
+#define PRDT_SUCCESS 0
+#define PRDT_NULL_POINTER_ERROR 1
+
+#define PRDT_LOAD_PALMPRINT_IMAGE_FAIL 100
+#define PRDT_LOAD_PALMPRINT_VIDEO_FAIL 101
+
 #define _IN
 #define _OUT
 #define _INOUT
@@ -32,20 +38,20 @@
 extern "C"
 {
 #endif
-    typedef void(*ResultCallBackFunc)(_IN cv::Mat *palmROI);
+    typedef void(*ResultCallBackFunc)(_IN cv::Mat *palmprintROI);
     typedef void(*StateCallBackFunc)(_IN int state);
 
-    PRDT_API int GetPalmROI(_IN const cv::Mat &palmImage,
+    PRDT_API int GetPalmROI(_IN const cv::Mat &palmprintImage,
                             _IN const cv::Size &roiSize,
-                            _OUT cv::Mat &palmROI);
-    PRDT_API int GetPalmROIAsync(_IN const cv::Mat &palmImage,
+                            _OUT cv::Mat &palmprintROI);
+    PRDT_API int GetPalmROIAsync(_IN const cv::Mat &palmprintImage,
                                  _IN const cv::Size &roiSize,
                                  _IN ResultCallBackFunc resultCallBack,
                                  _IN StateCallBackFunc stateCallBack);
 
     PRDT_API int GetPalmROIByPath(_IN const char *imagePath,
                                   _IN const cv::Size &roiSize,
-                                  _OUT cv::Mat &palmROI);
+                                  _OUT cv::Mat &palmprintROI);
     PRDT_API int GetPalmROIByPathAsync(_IN const char *imageOrVideoPath,
                                        _IN const cv::Size &roiSize,
                                        _IN ResultCallBackFunc resultCallBack,
