@@ -6,11 +6,24 @@
 ************************************************************************/
 
 #include <PRDT.h>
+#include <Pub.h>
+using namespace PRDT;
 
 int GetPalmROI(_IN const cv::Mat &palmImage,
                _IN const cv::Size &roiSize,
                _OUT cv::Mat &palmROI)
 {
+    if (palmImage.empty())
+    {
+        PRDT_Log("API:GetPalmROI\tPalmImage empty.");
+        return PRDT_LOAD_PALM_IMAGE_FAILURE;
+    }
+    if (roiSize.width <= 0
+        || roiSize.height <= 0)
+    {
+        PRDT_Log("API:GetPalmROI\tRoiSize(%d, %d) Invalid.", roiSize.width, roiSize.height);
+        return PRDT_PALM_ROI_SIZE_INVALID;
+    }
     return PRDT_SUCCESS;
 }
 int GetPalmROIAsync(_IN const cv::Mat &palmImage,

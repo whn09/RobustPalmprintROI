@@ -9,24 +9,20 @@
 using namespace std;
 
 #ifdef _WINDOWS
-
-#define TEST_DATA_BASE_DIR "..\\palm_test_data\\"
-
-#define PALM_IMAGE_PATH                 TEST_DATA_BASE_DIR""
-#define NOT_EXISTS_PALM_IMAGE_PATH      TEST_DATA_BASE_DIR""
-#define PALM_VIDEO_PATH                 TEST_DATA_BASE_DIR""
-#define NOT_EXISTS_PALM_VIDEO_PATH      TEST_DATA_BASE_DIR""
-
+#define TEST_DATA_BASE_DIR "..\\test\\palm_test_data\\"
 #elif
-
-#define TEST_DATA_BASE_DIR "../palm_test_data/"
-
-#define PALM_IMAGE_PATH                 TEST_DATA_BASE_DIR""
-#define NOT_EXISTS_PALM_IMAGE_PATH      TEST_DATA_BASE_DIR""
-#define PALM_VIDEO_PATH                 TEST_DATA_BASE_DIR""
-#define NOT_EXISTS_PALM_VIDEO_PATH      TEST_DATA_BASE_DIR""
-
+#define TEST_DATA_BASE_DIR "../test/palm_test_data/"
 #endif
+
+#define PALM_IMAGE_PATH                 TEST_DATA_BASE_DIR"palm_image.jpg"
+#define NOT_EXISTS_PALM_IMAGE_PATH      TEST_DATA_BASE_DIR"palm_image_not_exists.jpg"
+#define PALM_VIDEO_PATH                 TEST_DATA_BASE_DIR"palm_video.mp4"
+#define NOT_EXISTS_PALM_VIDEO_PATH      TEST_DATA_BASE_DIR"palm_video_not_exists.mp4"
+
+
+
+#define DEFAULT_PALM_ROI_WIDTH  256
+#define DEFAULT_PALM_ROI_HEIGHT 256
 
 #define PATH_LEN 128
 #define FREE_CHAR_ARRAY(pArray) do {\
@@ -44,8 +40,8 @@ using namespace std;
     strncpy((pDstArray), (pSrcArray), (len));\
 }while(0)
 
-void(*DefaultResultCallBack)(_IN cv::Mat *palmROI);
-void(*DefaultStateCallBack)(_IN int state);
+void DefaultResultCallBack(_IN cv::Mat *palmROI);
+void DefaultStateCallBack(_IN int state);
 
 class ft_prdt_base : public testing::Test
 {
@@ -81,6 +77,9 @@ public:
     {
         this->stateCallBack = func;
     }
+
+    virtual void ExcuteInterface() = 0;
+    void CheckInterfaceRet(int expectRet);
 protected:
     char *imagePath;
     char *videoPath;
@@ -89,5 +88,6 @@ protected:
     cv::Mat palmRoi;
     ResultCallBackFunc resultCallBack;
     StateCallBackFunc stateCallBack;
+    int interRet;
 private:
 };

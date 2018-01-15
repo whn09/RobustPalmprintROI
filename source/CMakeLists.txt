@@ -3,6 +3,7 @@ cmake_minimum_required( VERSION 2.8 )
 set(PROJECT_NAME PRDT)
 project(${PROJECT_NAME})
 set(PRDT_PUB_HEADER ${CMAKE_SOURCE_DIR}/../include)
+set(PRDT_SOURCE_INCLUDE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/include)
 
 message(STATUS "——————————————————————————————————————")
 message(STATUS "PROJECT_NAME : " ${PROJECT_NAME})
@@ -11,7 +12,11 @@ message(STATUS "—————————————————————�
 
 find_package(OpenCV REQUIRED)
 
-include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include/)
+include_directories(${PRDT_SOURCE_INCLUDE_DIR}/PCM
+                    ${PRDT_SOURCE_INCLUDE_DIR}/PDM
+                    ${PRDT_SOURCE_INCLUDE_DIR}/PPM
+                    ${PRDT_SOURCE_INCLUDE_DIR}/ERM
+                    ${PRDT_SOURCE_INCLUDE_DIR}/Util)
 include_directories(${PRDT_PUB_HEADER})
 include_directories(${OpenCV_INCLUDE_DIRS})
 
