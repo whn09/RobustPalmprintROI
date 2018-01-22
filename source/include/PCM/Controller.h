@@ -1,27 +1,37 @@
 /*************************************************************************
-> File Name: PRDT.h
+> File Name: Controller.h
 > Author: Leosocy
 > Mail: 513887568@qq.com
 > Created Time: 2018/1/7 18:36:32
 ************************************************************************/
 
-#ifndef __ADAPTER_LAYER_H__
-#define __ADAPTER_LAYER_H__
+#ifndef __CONTROLLER_H__
+#define __CONTROLLER_H__
 
 #include <PRDT.h>
+#include <Palm.h>
 
 namespace PRDT
 {
-    class PalmAdapter
+    class Controller
     {
     public:
+        Controller();
+        ~Controller();
+
         void SetResultCallBack(ResultCallBackFunc func) { this->resultCallBackHandler = func; }
         void SetStateCallBack(StateCallBackFunc func) { this->stateCallBackHandler = func; }
+        void RegisterPalm(const Palm &instance);
     protected:
     private:
         ResultCallBackFunc resultCallBackHandler;
         StateCallBackFunc stateCallBackHandler;
+
+        Palm *palm;
+
+        bool MallocPalmData();
+        void FreePalmData();
     };
 }
 
-#endif // !__ADAPTER_LAYER_H__
+#endif // !__CONTROLLER_H__

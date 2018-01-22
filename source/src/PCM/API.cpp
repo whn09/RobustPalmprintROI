@@ -15,13 +15,13 @@ int GetPalmROI(_IN const cv::Mat &palmImage,
 {
     if (palmImage.empty())
     {
-        PRDT_Log("API:GetPalmROI\tPalmImage empty.");
+        PRDT_Log("PalmImage empty.");
         return PRDT_LOAD_PALM_IMAGE_FAILURE;
     }
     if (roiSize.width <= 0
         || roiSize.height <= 0)
     {
-        PRDT_Log("API:GetPalmROI\tRoiSize(%d, %d) Invalid.", roiSize.width, roiSize.height);
+        PRDT_Log("RoiSize(%d, %d) Invalid.", roiSize.width, roiSize.height);
         return PRDT_PALM_ROI_SIZE_INVALID;
     }
     return PRDT_SUCCESS;

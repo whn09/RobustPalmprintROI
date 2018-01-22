@@ -1,17 +1,12 @@
 #include <Pub.h>
-#include <stdarg.h>
-#include <stdio.h>
-#include <string.h>
 using namespace PRDT;
 
-void PRDT::PRDT_Log(const char *format, ...)
+void PRDT::PRDT_Log_Func(_IN const char *format, _IN ...)
 {
     char log[1024] = {0};
     va_list args;
     va_start(args, format);
-    std::string formatStr = format;
-    formatStr = "[PRDT Debug]\t" + formatStr + "\n";
-    vsnprintf(log, sizeof(log), formatStr.c_str(), args);
+    vsnprintf(log, sizeof(log), format, args);
     va_end(args);
 
     #ifdef _WINDOWS
