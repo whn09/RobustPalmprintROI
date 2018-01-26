@@ -12,11 +12,7 @@ message(STATUS "—————————————————————�
 
 find_package(OpenCV REQUIRED)
 
-include_directories(${PRDT_SOURCE_INCLUDE_DIR}/PCM
-                    ${PRDT_SOURCE_INCLUDE_DIR}/PDM
-                    ${PRDT_SOURCE_INCLUDE_DIR}/PPM
-                    ${PRDT_SOURCE_INCLUDE_DIR}/ERM
-                    ${PRDT_SOURCE_INCLUDE_DIR}/Util)
+include_directories(${PRDT_SOURCE_INCLUDE_DIR})
 include_directories(${PRDT_PUB_HEADER})
 include_directories(${OpenCV_INCLUDE_DIRS})
 

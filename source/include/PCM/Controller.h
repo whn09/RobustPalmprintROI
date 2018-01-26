@@ -1,37 +1,40 @@
-/*************************************************************************
-> File Name: Controller.h
-> Author: Leosocy
-> Mail: 513887568@qq.com
-> Created Time: 2018/1/7 18:36:32
-************************************************************************/
-
 #ifndef __CONTROLLER_H__
 #define __CONTROLLER_H__
 
-#include <PRDT.h>
-#include <Palm.h>
+#include "prdt.h"
 
-namespace PRDT
+namespace prdt
 {
-    class Controller
-    {
-    public:
-        Controller();
-        ~Controller();
 
-        void SetResultCallBack(ResultCallBackFunc func) { this->resultCallBackHandler = func; }
-        void SetStateCallBack(StateCallBackFunc func) { this->stateCallBackHandler = func; }
-        void RegisterPalm(const Palm &instance);
-    protected:
-    private:
-        ResultCallBackFunc resultCallBackHandler;
-        StateCallBackFunc stateCallBackHandler;
+class Palm;
+class PalmDetector;
+class PreProcessor;
 
-        Palm *palm;
+class Controller 
+{
+public:
+    Controller();
+    ~Controller();
 
-        bool MallocPalmData();
-        void FreePalmData();
-    };
-}
+    void set_result_call_back_handler(ResultCallBackFunc func) { state_call_back_handler_ = func; }
+    void set_state_call_back_handler(StateCallBackFunc func) { result_call_back_handler_ = func; }
+    ResultCallBackFunc result_call_back_handler() { return result_call_back_handler_; }
+    StateCallBackFunc state_call_back_handler() { return state_call_back_handler_; }
+
+    void InjectPalm(const Palm &palm_instance);
+protected:
+private:
+    bool MallocPalmData();
+    void FreePalmData();
+
+    ResultCallBackFunc result_call_back_handler_;
+    StateCallBackFunc state_call_back_handler_;
+
+    Palm *palm_;
+    PalmDetector *detector_;
+    PreProcessor *preprocessor_;
+};
+
+} // namespace prdt
 
 #endif // !__CONTROLLER_H__

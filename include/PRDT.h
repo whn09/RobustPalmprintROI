@@ -1,15 +1,7 @@
-/*************************************************************************
-    > File Name: PRDT.h
-    > Author: Leosocy
-    > Mail: 513887568@qq.com 
-    > Created Time: 2018/1/7 00:11:50
- ************************************************************************/
-
 #ifndef __PRDT_H__
 #define __PRDT_H__
 
-#include <string>
-#include <opencv2/opencv.hpp>
+#include "opencv2/opencv.hpp"
 
 #ifdef _WINDOWS
 
@@ -43,24 +35,24 @@
 extern "C"
 {
 #endif
-    typedef void(*ResultCallBackFunc)(_IN cv::Mat *palmROI);
+    typedef void(*ResultCallBackFunc)(_IN cv::Mat *palm_roi);
     typedef void(*StateCallBackFunc)(_IN int state);
 
-    PRDT_API int GetPalmROI(_IN const cv::Mat &palImage,
-                            _IN const cv::Size &roiSize,
-                            _OUT cv::Mat &palmROI);
-    PRDT_API int GetPalmROIAsync(_IN const cv::Mat &palmImage,
-                                 _IN const cv::Size &roiSize,
-                                 _IN ResultCallBackFunc resultCallBack,
-                                 _IN StateCallBackFunc stateCallBack);
+    PRDT_API int GetPalmROI(_IN const cv::Mat &palm_image,
+                            _IN const cv::Size &roi_size,
+                            _OUT cv::Mat &palm_roi);
+    PRDT_API int GetPalmROIAsync(_IN const cv::Mat &palm_image,
+                                 _IN const cv::Size &roi_size,
+                                 _IN ResultCallBackFunc result_call_back,
+                                 _IN StateCallBackFunc state_call_back);
 
-    PRDT_API int GetPalmROIByPath(_IN const char *imagePath,
-                                  _IN const cv::Size &roiSize,
-                                  _OUT cv::Mat &palmROI);
-    PRDT_API int GetPalmROIByPathAsync(_IN const char *imageOrVideoPath,
-                                       _IN const cv::Size &roiSize,
-                                       _IN ResultCallBackFunc resultCallBack,
-                                       _IN StateCallBackFunc stateCallBack);
+    PRDT_API int GetPalmROIByPath(_IN const char *image_path,
+                                  _IN const cv::Size &roi_size,
+                                  _OUT cv::Mat &palm_roi);
+    PRDT_API int GetPalmROIByPathAsync(_IN const char *image_or_video_path,
+                                       _IN const cv::Size &roi_size,
+                                       _IN ResultCallBackFunc result_call_back,
+                                       _IN StateCallBackFunc state_call_back);
 
 #ifdef __cplusplus
 }

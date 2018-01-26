@@ -1,7 +1,12 @@
-#include <Pub.h>
-using namespace PRDT;
+#include "util/pub.h"
 
-void PRDT::PRDT_Log_Func(_IN const char *format, _IN ...)
+#include <stdio.h>
+#include <stdarg.h>
+
+namespace prdt
+{
+
+void PRDT_Log_Func(const char *format, ...)
 {
     char log[1024] = {0};
     va_list args;
@@ -20,3 +25,5 @@ void PRDT::PRDT_Log_Func(_IN const char *format, _IN ...)
     fclose(outFile);
     #endif
 }
+
+} // namespace prdt
