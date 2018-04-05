@@ -1,4 +1,6 @@
 #include "pcm/controller.h"
+#include "pcm/palm.h"
+#include "util/pub.h"
 
 namespace prdt
 {

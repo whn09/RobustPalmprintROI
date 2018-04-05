@@ -4,8 +4,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <fstream>
-#include <opencv2/opencv.hpp>
-#include <PRDT.h>
+#include "opencv2/opencv.hpp"
+#include <prdt.h>
 using namespace std;
 
 #ifdef _WINDOWS

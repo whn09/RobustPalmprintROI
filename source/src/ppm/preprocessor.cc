@@ -1,9 +1,8 @@
 #include "ppm/pre_processor.h"
-
 #include "pcm/palm.h"
 
 
-namespace ptdt
+namespace prdt
 {
 
 void PreProcessor::PreProcess(Palm &palm)

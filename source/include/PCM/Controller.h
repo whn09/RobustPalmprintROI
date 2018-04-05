@@ -16,8 +16,8 @@ public:
     Controller();
     ~Controller();
 
-    void set_result_call_back_handler(ResultCallBackFunc func) { state_call_back_handler_ = func; }
-    void set_state_call_back_handler(StateCallBackFunc func) { result_call_back_handler_ = func; }
+    void set_result_call_back_handler(ResultCallBackFunc func) { result_call_back_handler_ = func; }
+    void set_state_call_back_handler(StateCallBackFunc func) { state_call_back_handler_ = func; }
     ResultCallBackFunc result_call_back_handler() { return result_call_back_handler_; }
     StateCallBackFunc state_call_back_handler() { return state_call_back_handler_; }
 

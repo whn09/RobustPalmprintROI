@@ -1,6 +1,6 @@
 cmake_minimum_required( VERSION 2.8 )
 
-set(PROJECT_NAME PRDT)
+set(PROJECT_NAME prdt)
 project(${PROJECT_NAME})
 set(PRDT_PUB_HEADER ${CMAKE_SOURCE_DIR}/../include)
 set(PRDT_SOURCE_INCLUDE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/include)

@@ -1,5 +1,5 @@
-#ifndef __PRE_PROCESSOR_H__
-#define __PRE_PROCESSOR_H__
+#ifndef __PREPROCESSOR_H__
+#define __PREPROCESSOR_H__
 
 namespace prdt
 {
@@ -16,4 +16,4 @@ private:
 
 }
 
-#endif // !__PRE_PROCESSOR_H__
+#endif // !__PREPROCESSOR_H__
