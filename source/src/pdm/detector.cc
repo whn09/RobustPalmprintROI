@@ -1,4 +1,4 @@
-#include "pdm/palm_detector.h"
+#include "pdm/detector.h"
 
 #include "pcm/palm.h"
 
