@@ -10,7 +10,7 @@ using namespace std;
 
 #ifdef _WINDOWS
 #define TEST_DATA_BASE_DIR "..\\test\\palm_test_data\\"
-#elif
+#else
 #define TEST_DATA_BASE_DIR "../test/palm_test_data/"
 #endif
 
