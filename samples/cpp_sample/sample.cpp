@@ -44,7 +44,7 @@ int main(int argc, char** argv)
     try {
         cv::imwrite("tmp.png", palmRoi, compression_params);
     }
-    catch (runtime_error& ex) {
+    catch (std::runtime_error& ex) {
     }
 }
 
