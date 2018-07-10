@@ -37,7 +37,7 @@ int main(int argc, char** argv)
     roiSize.width = 1200;
     roiSize.height = 1200;
     cv::Mat palmRoi;
-    int ret = GetPalmROIByPath(palmprint_image_path, roiSize, palmRoi);
+    int ret = GetPalmROIByPath(palmprint_image_path, &roiSize, &palmRoi);
     printf("ret = %d", ret);
 
     std::vector<int> compression_params;
