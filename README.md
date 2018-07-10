@@ -55,5 +55,5 @@ cd build
 cmake ..
 make
 cd ..
-./build/
+./build/run_cpp_sample -i palm_test_date/palm_image.jpg
 ```

@@ -6,8 +6,8 @@
 
 void PrintUsage()
 {
-    printf("Usage:\t./sample -i image\n");
-    printf("e.g.\t./sample -i ./palm_test_data/palm_image.jpg\n");
+    printf("Usage:\t./build/run_cpp_sample -i image\n");
+    printf("e.g.\t./build/run_cpp_sample -i ./palm_test_data/palm_image.jpg\n");
 }
 
 bool CheckOptions(int argc, char** argv)
