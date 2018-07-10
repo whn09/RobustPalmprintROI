@@ -28,3 +28,21 @@ Palmprint ROI Based on Distance Transform.
 - GenMaxCir
 - RotateCir
 - GenRoiFromOriImg
+
+# RUN
+
+```
+mkdir build
+cd build
+cmake ..
+make
+```
+
+```
+cd test
+mkdir build
+cd build
+cmake ..
+make gtest_main
+make ft_prdt/make # 会报错
+```
