@@ -1,4 +1,4 @@
-# PRDT
+# PRDT [NOT DONE...]
 
 Palmprint ROI Based on Distance Transform.
 
