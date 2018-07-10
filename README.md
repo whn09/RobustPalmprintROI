@@ -47,3 +47,13 @@ cmake ..
 make gtest_main
 make ft_prdt/make # 会报错
 ```
+
+```
+cd samples/cpp_sample
+mkdir build
+cd build
+cmake ..
+make
+cd ..
+./build/
+```

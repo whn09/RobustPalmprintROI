@@ -2,7 +2,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-using namespace std;
 
 void PrintUsage()
 {
@@ -39,7 +38,7 @@ int main(int argc, char** argv)
     cv::Mat palmRoi;
     int ret = GetPalmROIByPath(palmprint_image_path, roiSize, palmRoi);
 
-    vector<int> compression_params;
+    std::vector<int> compression_params;
     compression_params.push_back(CV_IMWRITE_PNG_COMPRESSION);
     compression_params.push_back(0); // 0-9
     try {
