@@ -23,9 +23,13 @@ bool CheckOptions(int argc, char** argv)
 
 int main(int argc, char** argv)
 {
+    if (!CheckOptions(argc, argv))
+    {
+        return 1;
+    }
     const char* palmprint_image_path = NULL;
     int i = 1;
-    printf("argc = %d", argc);
+    printf("argc = %d\n", argc);
     while (i < argc)
     {
         if (strcmp(argv[i], "-i") == 0)
@@ -34,13 +38,13 @@ int main(int argc, char** argv)
         }
         ++i;
     }
-    printf("palmprint_image_path = %s", palmprint_image_path);
+    printf("palmprint_image_path = %s\n", palmprint_image_path);
     cv::Size roiSize;
     roiSize.width = 1200;
     roiSize.height = 1200;
     cv::Mat palmRoi;
     int ret = GetPalmROIByPath(palmprint_image_path, roiSize, palmRoi);
-    printf("ret = %d", ret);
+    printf("ret = %d\n", ret);
 
     std::vector<int> compression_params;
     compression_params.push_back(CV_IMWRITE_PNG_COMPRESSION);
