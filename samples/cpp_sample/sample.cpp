@@ -25,6 +25,7 @@ int main(int argc, char** argv)
 {
     const char* palmprint_image_path = NULL;
     int i = 1;
+    printf("argc = %d", argc);
     while (i < argc)
     {
         if (strcmp(argv[i], "-i") == 0)
@@ -33,6 +34,7 @@ int main(int argc, char** argv)
         }
         ++i;
     }
+    printf("palmprint_image_path = %s", palmprint_image_path);
     cv::Size roiSize;
     roiSize.width = 1200;
     roiSize.height = 1200;
