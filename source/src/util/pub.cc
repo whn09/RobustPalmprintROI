@@ -1,6 +1,7 @@
 #include "util/pub.h"
 #include <stdio.h>
 #include <stdarg.h>
+#include <string.h>
 
 namespace prdt
 {
