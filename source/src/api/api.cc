@@ -43,7 +43,7 @@ int GetPalmROIByPath(_IN const char *image_path,
                      _OUT cv::Mat &palm_roi)
 {
     printf("GetPalmROIByPath in api.cc\n");
-    cv::Mat image = cv::imread(image_path, cv::CV_LOAD_IMAGE_UNCHANGED);
+    cv::Mat image = cv::imread(image_path);
     return GetPalmROI(image, roi_size, palm_roi);
 }
 int GetPalmROIByPathAsync(_IN const char *image_or_video_path,
