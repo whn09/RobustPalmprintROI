@@ -1,0 +1,32 @@
+# PRDT Module
+# Author: Leosocy
+# Email: leosocy@163.com
+# Usage from an external project:
+#   In your CMakeLists.txt, add these lines:
+#   
+#   FIND_PACKAGE(PRDT REQUIRED)
+#   INCLUDE_DIRECTORIES(${PRDT_INCLUDE_DIRS})
+#   TARGET_LINK_LIBRARIES(MY_TARGET_NAME ${PRDT_LIBS})
+
+SET(PRDT_VERSION 1.0.1)
+SET(PRDT_VERSION_MAJOR 1)
+SET(PRDT_VERSION_MINOR 0)
+SET(PRDT_VERSION_PATCH 1)
+
+FIND_PATH(PRDT_INCLUDE_DIRS prdt.h /usr/local/include/prdt /usr/include/prdt)
+FIND_LIBRARY(PRDT_LIBS NAMES prdt PATH /usr/local/lib /usr/lib)
+
+IF(PRDT_INCLUDE_DIRS AND PRDT_LIBS)
+	SET(PRDT_FOUND TRUE)
+ENDIF()
+
+IF(PRDT_FOUND)
+	IF(NOT PRDT_FIND_QUIETLY)
+		MESSAGE(STATUS "Found PRDT Headers: ${PRDT_INCLUDE_DIRS}")
+		MESSAGE(STATUS "Found PRDT Libs: ${PRDT_LIBS}")
+	ENDIF()
+ELSE()
+	IF(PRDT_FIND_REQUIRED)
+		MESSAGE(FATAL_ERROR "Cound not find PRDT library!")
+	ENDIF()
+ENDIF()
