@@ -9,6 +9,7 @@ int GetPalmROI(const cv::Mat &palm_image,
                const cv::Size &roi_size,
                cv::Mat &palm_roi)
 {
+    printf("GetPalmROI in api.cc\n");
     if (palm_image.empty())
     {
         PRDT_Log("PalmImage empty.");
@@ -20,6 +21,8 @@ int GetPalmROI(const cv::Mat &palm_image,
         PRDT_Log("RoiSize(%d, %d) Invalid.", roi_size.width, roi_size.height);
         return PRDT_PALM_ROI_SIZE_INVALID;
     }
+
+    printf("roi_size.width = %d, roi_size.height = %d\n", roi_size.width, roi_size.height);
 
     Palm orig_palm(palm_image);
     Controller algorithm_controller;
@@ -39,7 +42,9 @@ int GetPalmROIByPath(_IN const char *image_path,
                      _IN const cv::Size &roi_size,
                      _OUT cv::Mat &palm_roi)
 {
-    return PRDT_SUCCESS;
+    printf("GetPalmROIByPath in api.cc\n");
+    cv::Mat image = imread(image_path, cv::CV_LOAD_IMAGE_UNCHANGED);
+    return GetPalmROI(image, roi_size, palm_roi)
 }
 int GetPalmROIByPathAsync(_IN const char *image_or_video_path,
                           _IN const cv::Size &roi_size,
