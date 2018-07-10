@@ -1,4 +1,4 @@
-#include "../../include/prdt.h"
+#include <prdt.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
